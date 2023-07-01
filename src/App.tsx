@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
 import ListGroup from "./components/ListGroup";
@@ -21,9 +22,14 @@ import ListGroup from "./components/ListGroup";
 }*/
 
 function App() {
+  const [alertVisible, setAlertVisibility] = useState(false);
+
   return (
     <div>
-      <Button onClick={() => console.log("Clicked")}>New Button</Button>
+      {alertVisible && (
+        <Alert onClose={() => setAlertVisibility(false)}>Waitei</Alert>
+      )}
+      <Button onClick={() => setAlertVisibility(true)}>New Button</Button>
     </div>
   );
 }
